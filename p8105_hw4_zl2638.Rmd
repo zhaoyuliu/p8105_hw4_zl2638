@@ -1,7 +1,0 @@
----
-title: "p8105_hw4_zl2638"
-author: "Zhaoyu Liu"
-date: "10/30/2017"
-output: html_document
----
-
