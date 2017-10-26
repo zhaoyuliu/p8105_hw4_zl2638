@@ -24,7 +24,7 @@ pups_data = read_csv("./FAS_pups.csv", col_types = "ciiiii") %>%
   gather(key = visit, value = pd_outcome, sex:pd_walk) %>%
   filter(!is.na(pd_outcome)) %>%
   arrange(litter_number, visit)
-
+ ggplot(pups_data, aes(x=pd_outcome,y=litter_number))+geom_density_ridges(scale = 0.95)
 ```
 
 
