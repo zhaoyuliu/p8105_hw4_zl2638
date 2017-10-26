@@ -1,12 +1,30 @@
 ---
 title: "p8105_hw4_zl2638"
 author: "Zhaoyu Liu"
-date: "2017年10月25日"
+date: "10/30/2017"
 output: html_document
 ---
 
-12335345498769875
-23878234
+##This is the fourth homework of Data Science I.
 
-gkjyf
-werwetesrh
+####Problem 1
+
+Load and tidy the data:
+
+```{r load_tidy}
+library(tidyverse)
+library(janitor)
+library(haven)
+library(readxl)
+library(ggridges)
+library(ggthemes)
+
+pups_data = read_csv("./FAS_pups.csv", col_types = "ciiiii") %>%
+  clean_names() %>%
+  gather(key = visit, value = pd_outcome, sex:pd_walk) %>%
+  filter(!is.na(pd_outcome)) %>%
+  arrange(litter_number, visit)
+
+```
+
+
