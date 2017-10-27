@@ -9,9 +9,9 @@ output: html_document
 
 ####Problem 1
 
-Load and tidy the data:
+Load and tidy the data, then draw the plot.
 
-```{r load_tidy}
+```{r load_tidy, fig.width=10, fig.height=11}
 library(tidyverse)
 library(janitor)
 library(haven)
@@ -24,10 +24,10 @@ pups_data = read_csv("./FAS_pups.csv", col_types = "ciiiii") %>%
   gather(key = visit, value = pd_outcome, sex:pd_walk) %>%
   filter(!is.na(pd_outcome)) %>%
   arrange(litter_number, visit)
- ggplot(pups_data, aes(x=pd_outcome,y=litter_number))+geom_density_ridges(scale = 0.95)%>%
- labs(title = "distribution of post-natal days for each developmental landmark", 
-      x = "landmark number",
-      y = "post-natal days")
+
+ ggplot(pups_data, aes(x=pd_outcome,y=litter_number))+geom_density_ridges(scale = 0.95)+ labs(title = "distribution of post-natal days for each developmental landmark", 
+      x = "post-natal days",
+      y = "landmark number")
 ```
 
-
+According to the graph we can see that the distribution of post-natal days for developmental landmark are mainly from 0-5 and 10-5. 
